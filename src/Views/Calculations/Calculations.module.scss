@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  justify-content: flex-start;
+  gap: 15px;
+  &>.inputDiv{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    gap: 20px;
+  }
+  @media (min-width:600px) {
+    &>.inputDiv {
+      flex-direction: row;
+      gap: 0px
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  margin: 10px 10px 10px 0px;
+  .input {
+    border: none;
+    border-bottom: 1px solid black;
+    &:hover {
+      outline: none;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+}
