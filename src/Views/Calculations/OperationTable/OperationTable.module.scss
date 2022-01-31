@@ -1,13 +1,52 @@
 .container {
+  display: block;
   width: 100%;
   border-spacing: 0;
-  border-collapse: collapse;
-  & th {
-    text-align: center;
-    border: 1px solid black;
+  border-top: 1px solid black;
+  & thead {
+    position: relative;
+    display: block;
+    width: 100%;
+    & th {
+      display: block;
+      flex-basis: 100%;
+      flex-grow: 1;
+      text-align: center;
+      border-right: 1px solid black;
+      &:last-child {
+        border-right: none;
+      }
+    }
   }
-  & td {
-    text-align: center;
-    border: 1px solid black;
+  & tbody {
+    display: block;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid black;
+    overflow-y: overlay;
+    height: 300px;
+    max-height: 300px;
+    & td {
+      display: block;
+      flex-basis: 100%;
+      flex-grow: 1;
+      text-align: center;
+      border-right: 1px solid black;
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+  & tr {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid black;
+  }
+  & td, & th {
+    flex-basis:100%;
+    flex-grow:2;
+    display: block;
+    padding: 1rem;
+    text-align:center;
   }
 }

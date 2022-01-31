@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import styles from './OperationPicker.module.scss';
 
 interface Props {
@@ -11,18 +11,17 @@ const OperationPicker = (props: Props) => {
   return (
     <div className={styles.container}>
       <label>Operations:</label>
-      <div className={styles.radioContainer}>
+      <div className={styles.operationContainer}>
         {props.values.map(value => (
-          <div key={value} >
-            <input
-              type='radio'
-              value={value}
-              name='operation'
-              checked={props.selected === value}
-              onChange={(ev: ChangeEvent<HTMLInputElement>) => {
-                props.onSelect(ev.target.value);
-              }}
-            />
+          <div
+            key={value}
+            className={`${styles.operationItem} ${props.selected === value ? styles.selected : ''}`}
+            onClick={() => {
+              if(typeof props.onSelect === 'function') {
+                props.onSelect(value);
+              }
+            }}
+          >
             <label>{value}</label>
           </div>
         ))}

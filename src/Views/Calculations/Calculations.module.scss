@@ -1,19 +1,38 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
-  justify-content: flex-start;
-  gap: 15px;
-  &>.inputDiv{
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  &>.innerContainer {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-    gap: 20px;
-  }
-  @media (min-width:600px) {
-    &>.inputDiv {
-      flex-direction: row;
-      gap: 0px
+    align-items: stretch;
+    width: 100%;
+    max-width: 650px;
+    border: 1px solid black;
+    border-radius: 10px;
+    gap: 10px;
+    &>.resultsLabel {
+      font-size: 1.5em;
+      text-align: center;
+    }
+    &>.inputDiv{
+      display: flex;
+      flex-direction: column;
+      padding: 1em;
+      gap: 10px;
+      &>.inputContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @media (min-width:600px) {
+          & {
+            flex-direction: row;
+          }
+        }
+      }
     }
   }
 }

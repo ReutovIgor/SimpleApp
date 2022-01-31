@@ -12,9 +12,10 @@ const OperationTable = (props: Props) => {
     <table className={styles.container} cellSpacing='0'>
       <thead>
         <tr key={'header'}>
-          {props.headers.map((h, i) => (
-            <th key={`${h}_${i}`}>{h}</th>
-          ))}
+          <th>{'Operand1'}</th>
+          <th>{'Operand2'}</th>
+          <th>{'Operation'}</th>
+          <th>{'Result'}</th>
         </tr>
       </thead>
       <tbody>

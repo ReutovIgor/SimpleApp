@@ -81,37 +81,42 @@ const Calculations = () => {
 
   return (
     <div className={styles.container}>
-      <OperationPicker
-        values={[ActionType.sum, ActionType.divide, ActionType.remainder, ActionType.max]}
-        onSelect={(value) => {
-          console.log('VALUE RECEIVED: ', value)
-          const enumValue = value as ActionType;
-          setOperation(enumValue);
-        }}
-        selected={operation}
-      />
-      <div className={styles.inputDiv}>
-        <CustomInput
-          value={input1}
-          placeholder={'Input first value'}
-          onInput={(text) => {
-            setInput1(text);
+      <div className={styles.innerContainer}>
+        <OperationPicker
+          values={[ActionType.sum, ActionType.divide, ActionType.remainder, ActionType.max]}
+          onSelect={(value) => {
+            console.log('VALUE RECEIVED: ', value)
+            const enumValue = value as ActionType;
+            setOperation(enumValue);
           }}
+          selected={operation}
         />
-        <CustomInput
-          value={input2}
-          placeholder={'Input second value'}
-          onInput={(text) => {
-            setInput2(text);
-          }}
-        />
-        <CustomButton text={'Calculate'} onPress={calculate} />
-      </div>
-      <div>
+        <div className={styles.resultsLabel}>
+          <label>{'RESULTS:'}</label>
+        </div>
         <OperationTable
-          headers={['Input1', 'Input2', 'Action', 'Result']}
+          headers={['Operand1', 'Operand2', 'Action', 'Result']}
           data={resulsts}
         />
+        <div className={styles.inputDiv}>
+          <div className={styles.inputContainer}>
+            <CustomInput
+              value={input1}
+              placeholder={'Input first operand'}
+              onInput={(text) => {
+                setInput1(text);
+              }}
+            />
+            <CustomInput
+              value={input2}
+              placeholder={'Input second operand'}
+              onInput={(text) => {
+                setInput2(text);
+              }}
+            />
+          </div>
+          <CustomButton text={'Calculate'} onPress={calculate} />
+        </div>
       </div>
     </div>
   )
